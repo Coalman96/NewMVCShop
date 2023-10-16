@@ -1,0 +1,9 @@
+[2023-09-27 18:14]  INFO 4588 --- [   File Watcher] ChangedEventListener:211 : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2023-09-27 18:14]  INFO 4588 --- [       Thread-5] o.a.j.l.DirectJDKLog:173 : Pausing ProtocolHandler ["http-nio-8001"]
+[2023-09-27 18:14]  INFO 4588 --- [       Thread-5] o.a.j.l.DirectJDKLog:173 : Stopping service [Tomcat]
+[2023-09-27 18:14]  INFO 4588 --- [       Thread-5] o.a.j.l.DirectJDKLog:173 : Destroying Spring FrameworkServlet 'dispatcherServlet'
+[2023-09-27 18:14]  INFO 4588 --- [       Thread-5] o.a.j.l.DirectJDKLog:173 : Stopping ProtocolHandler ["http-nio-8001"]
+[2023-09-27 18:14]  INFO 4588 --- [       Thread-5] o.a.j.l.DirectJDKLog:173 : Destroying ProtocolHandler ["http-nio-8001"]
+[2023-09-27 18:14]  INFO 4588 --- [       Thread-5] tyManagerFactoryBean:650 : Closing JPA EntityManagerFactory for persistence unit 'default'
+[2023-09-27 18:14]  INFO 4588 --- [       Thread-5] z.h.HikariDataSource:350 : HikariPool-1 - Shutdown initiated...
+[2023-09-27 18:14]  INFO 4588 --- [       Thread-5] z.h.HikariDataSource:352 : HikariPool-1 - Shutdown completed.
