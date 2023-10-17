@@ -11,5 +11,5 @@ public interface CartService {
 
   public List<CartItemDTO> userCartView(UserDTO user);
 
-  public void cartDelete(String userId, Long itemId);
+  public List<CartItemDTO> cartDelete(String userId, Long itemId) throws Exception;
 }

@@ -49,21 +49,15 @@ public class CartRestController {
 
     UserDTO user = userService.getUser(userId);
 
-    if(user != null){
-
-//      List<CartItemDTO> cartItems = cartService.userCartView(user);
-
-    }
-
     return cartService.userCartView(user);
   }
 
   @GetMapping("/json/cartDelete/{userId}/{itemId}")
-  public void deleteCartItem(@PathVariable("userId") String userId, @PathVariable("itemId") Long itemId) throws Exception{
+  public List<CartItemDTO> deleteCartItem(@PathVariable("userId") String userId, @PathVariable("itemId") Long itemId) throws Exception{
 
     log.info("deleteCartItem에서 받은 인자는{},{}",userId,itemId);
 
-    cartService.cartDelete(userId,itemId);
+    return cartService.cartDelete(userId,itemId);
 
   }
 

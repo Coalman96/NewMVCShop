@@ -46,7 +46,7 @@ public interface UserService {
         .phone(entity.getPhone())
         .userName(entity.getUserName())
         .role(entity.getRole())
-        .regDate(entity.getRegDate())
+//        .regDate(entity.getRegDate())
         .cart(cartMapper.cartEntityToDto(entity.getCart()))
         .build();
 

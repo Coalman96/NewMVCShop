@@ -111,21 +111,25 @@ public class CartServiceImpl implements CartService {
   }
 
   @Transactional
-  public void cartDelete(String userId, Long itemId) {
+  public List<CartItemDTO> cartDelete(String userId, Long cartItemId) throws Exception {
     // 해당 유저의 카트 아이템들 찾기
     List<CartItemEntity> cartItems = cartItemRepository.findAllByCartUserUserId(userId);
 
-    log.info("찾은 cart는 {}",cartItems);
+    log.info("찾은 cart는 {}", cartItems);
 
     for (CartItemEntity cartItem : cartItems) {
-      CartEntity cart = cartItem.getCart();
+      if (cartItem.getId().equals(cartItemId)) {
+        CartEntity cart = cartItem.getCart();
 
-      // 카트 아이템 삭제
-      cartItemRepository.deleteById(itemId);
+        // 카트 아이템 삭제
+        cartItemRepository.deleteById(cartItemId);
 
-      // 카트 아이템 수량만큼 카트의 총 상품 개수 감소
-      cart.setCount(cart.getCount() - cartItem.getCount());
+        // 카트 아이템 수량만큼 카트의 총 상품 개수 감소
+        cart.setCount(cart.getCount() - cartItem.getCount());
+      }
     }
-  }
 
+    log.info("cartDelete의 결과는 {}",userCartView(userService.getUser(userId)));
+    return userCartView(userService.getUser(userId));
+  }
 }

@@ -25,13 +25,8 @@ const Shoppingcart = () => {
     axios
       .get(`/json/cartDelete/${user.userId}/${productId}`)
       .then((response) => {
-        console.log(response.data);
-        // 삭제된 상품을 제외하고 새로운 상품 목록을 설정
-        const updatedProductData = productData.filter(
-          (data) => data.id !== productId
-        );
-        // 업데이트된 상품 목록을 설정
-        setProductData(updatedProductData);
+        console.log(response);
+        setProductData(response.data);
       })
       .catch((error) => {
         console.error("데이터를 삭제하는 중 오류 발생:", error);

@@ -89,6 +89,9 @@ dependencies {
     implementation("org.mapstruct:mapstruct:1.5.3.Final")
     // https://mvnrepository.com/artifact/org.projectlombok/lombok-mapstruct-binding
     implementation("org.projectlombok:lombok-mapstruct-binding:0.2.0")
+
+    //spring security
+    implementation "org.springframework.boot:spring-boot-starter-security"
 }
 
 

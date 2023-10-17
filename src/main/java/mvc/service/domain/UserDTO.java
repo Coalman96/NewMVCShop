@@ -1,6 +1,5 @@
 package mvc.service.domain;
 
-import java.time.LocalDate;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -14,7 +13,7 @@ import lombok.ToString;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDTO {
+public class UserDTO extends BaseDTO{
 
 	private String userId;
 	private String userName;
@@ -24,7 +23,7 @@ public class UserDTO {
 	private String phone;
 	private String addr;
 	private String email;
-	private LocalDate regDate;
+//	private LocalDate regDate;
 	private String phone1;
 	private String phone2;
 	private String phone3;
