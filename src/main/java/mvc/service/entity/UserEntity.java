@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import java.util.Collection;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -12,6 +14,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name = "users")
@@ -22,7 +27,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @NoArgsConstructor
 @AllArgsConstructor
 @DynamicUpdate
-public class UserEntity extends BaseEntity{
+public class UserEntity extends BaseEntity implements UserDetails {
 	
 	///Field
 	@Id
@@ -74,4 +79,40 @@ public class UserEntity extends BaseEntity{
 		this.phone = phone;
 	}
 
+	//security 적용 후 구현할 메소드
+	//권한을 가져올 메소드
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return List.of(new SimpleGrantedAuthority(role)); //단순권한부여를 리스트로 반환
+	}
+
+	//이메일을 가져올 메소드(유저네임이지만 이메일만 가져올수있다.)
+	@Override
+	public String getUsername() {
+		return email;
+	}
+
+	//만료되지않은 계정, true로해야 계정이 만료안됨
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	//계정이 잠겨있지않아야한다, true유지
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	//자격증명이 만료되지않았음을 뜻함, true유지
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+
+	//사용가능한계정을 뜻함, true 유지
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
 }

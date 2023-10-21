@@ -7,24 +7,24 @@ spring:
       client:
         registration:
           google:
-            client-id: {google 로그인 api를 만들때 발급 받은 client-id}
-            client-secret: {google 로그인 api를 만들때 발급 받은 client-secret}
-            redirect-uri: "http://localhost:8081/login/oauth2/code/google"
+            client-id: "815280219004-i1gmefi230vgamrllv4h7v1vmnrq518d.apps.googleusercontent.com"
+            client-secret: "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"
+            redirect-uri: "http://localhost:8001/login/oauth2/code/google"
             authorization-grant-type: authorization_code
             scope: profile, email
           kakao:
-            client-id: {kakao 로그인 api를 만들때 발급 받은 client-id}
-            redirect-uri: "http://localhost:8081/login/oauth2/code/kakao"
+            client-id: "8dd8993cb31f34f9f644d8919819b1cb"
+            redirect-uri: "http://localhost:8001/login/oauth2/code/kakao"
             client-authentication-method: POST
             authorization-grant-type: authorization_code
-            scope: profile_nickname, profile_image, account_email
+            scope: profile_nickname
             client-name: Kakao
           naver:
-            client-id: {naver 로그인 api를 만들때 발급 받은 client-id}
-            client-secret: {naver 로그인 api를 만들때 발급 받은 client-id}
-            redirect-uri: "http://localhost:8081/login/oauth2/code/naver"
+            client-id: "UyPUhKnygfDQ8hZKNmtd"
+            client-secret: "prAX0zNARo"
+            redirect-uri: "http://localhost:8001/login/oauth2/code/naver"
             authorization-grant-type: authorization_code
-            scope: name, email, profile_image
+            scope: name
             client-name: Naver
         provider:
           google:

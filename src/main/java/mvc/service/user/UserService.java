@@ -6,6 +6,7 @@ import mvc.service.domain.UserDTO;
 import mvc.service.entity.UserEntity;
 import mvc.service.mapper.CartMapper;
 import org.mapstruct.factory.Mappers;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 
 public interface UserService {
@@ -24,7 +25,7 @@ public interface UserService {
         .phone3(dto.getPhone3())
         .email(dto.getEmail())
         .phone(dto.getPhone())
-        .userName(dto.getUserName())
+//        .userName(dto.getUserName())
         .role(dto.getRole())
         .cart(cartMapper.cartDtoToEntity(dto.getCart()))
         .build();
@@ -44,7 +45,7 @@ public interface UserService {
         .phone3(entity.getPhone3())
         .email(entity.getEmail())
         .phone(entity.getPhone())
-        .userName(entity.getUserName())
+//        .userName(entity.getUserName())
         .role(entity.getRole())
 //        .regDate(entity.getRegDate())
         .cart(cartMapper.cartEntityToDto(entity.getCart()))
@@ -62,5 +63,8 @@ public interface UserService {
   public boolean checkDuplication(String userId) throws Exception;
 
   public PageResultDTO<UserDTO, UserEntity> getUserList(PageRequestDTO requestDTO);
+
+  //UserDetailsService 구현
+  UserDetailsService userDetailsService();
 
 }
