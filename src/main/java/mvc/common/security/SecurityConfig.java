@@ -70,7 +70,7 @@ public class SecurityConfig {
   //비밀번호를 안전하게 저장하기 위해 비밀번호를 해시(암호화)하는 데 사용
   @Bean
   public PasswordEncoder passwordEncoder() {
-    //BCrypt는 강력한 해시 알고리즘 중 하나로, 사용자 비밀번호를 안전하게 저장하는 데 사용
+    //BCrypt는 강력한 해시알고리즘 중 하나로, 사용자 비밀번호를 안전하게 저장하는 데 사용
     return new BCryptPasswordEncoder();
   }
 
