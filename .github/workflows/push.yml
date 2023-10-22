@@ -15,17 +15,13 @@ jobs:
 
       - name: 코드 빌드
         run: |
-          # 여기에서 코드 빌드 스크립트 또는 명령어를 실행합니다.
+          # 코드 빌드 스크립트 또는 명령어를 실행합니다.
           # 예를 들어, npm install 및 npm build를 실행하거나 Docker 이미지 빌드를 할 수 있습니다.
 
       - name: 코드 NCP Git 저장소로 push
         run: |
-          git remote add ncp https://devtools.ncloud.com/3051952/NewMVCShop.git
-          git config credential.helper store
-          git config --global user.email ""  # 사용자 이메일 제거
-          git config --global user.name ""    # 사용자 이름 제거
-
+          # NCP Git 저장소의 SSH URL을 사용하여 remote를 추가합니다.
+          git remote add ncp ssh://devtools.ncloud.com/3051952/NewMVCShop.git
+          
           # 코드를 NCP Git 저장소로 push합니다.
           git push ncp main:main
-
-# 추가적인 배포 단계를 정의할 수 있습니다.
