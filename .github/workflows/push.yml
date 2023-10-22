@@ -10,25 +10,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout 코드
-      uses: actions/checkout@v3
+      - name: Checkout 코드
+        uses: actions/checkout@v3
 
-    - name: 코드 빌드
-      run: |
-        # 여기에서 코드 빌드 스크립트 또는 명령어를 실행합니다.
-        # 예를 들어, npm install 및 npm build를 실행하거나 Docker 이미지 빌드를 할 수 있습니다.
+      - name: 코드 빌드
+        run: |
+          # 여기에서 코드 빌드 스크립트 또는 명령어를 실행합니다.
+          # 예를 들어, npm install 및 npm build를 실행하거나 Docker 이미지 빌드를 할 수 있습니다.
 
-    - name: 코드 NCP Git 저장소로 push
-      run: |
-        # NCP Git 인증 토큰을 설정합니다.
-             git remote add ncp https://devtools.ncloud.com/3051952/NewMVCShop.git
-             git config credential.helper store
-             echo "https://devtools.ncloud.com/3051952/NewMVCShop.git" > ncp.url
-             echo "username=token" > ncp.url
-             git config --file ncp.url user.email "ncc.camp.77@goodusdata.com"
-             git config --file ncp.url user.name "k8stest"
+      - name: 코드 NCP Git 저장소로 push
+        run: |
+          git remote add ncp https://devtools.ncloud.com/3051952/NewMVCShop.git
+          git config credential.helper store
+          echo "https://devtools.ncloud.com/3051952/NewMVCShop.git" > ncp.url
+          echo "username=token" > ncp.url
 
         # 코드를 NCP Git 저장소로 push합니다.
-        git push ncp main:main
+          git push ncp main:main
 
 # 추가적인 배포 단계를 정의할 수 있습니다.
