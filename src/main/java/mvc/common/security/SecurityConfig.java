@@ -62,7 +62,7 @@ public class SecurityConfig {
     DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
     //사용자 정보를 가져오는 데 사용될 UserDetailsService를 설정
     authenticationProvider.setUserDetailsService(userService.userDetailsService());
-    //비밀번호 암호화를 처리하는 데 사용될 PasswordEncoder를 설정
+    //비밀번호  암호화를 처리하는 데 사용될 PasswordEncoder를 설정
     authenticationProvider.setPasswordEncoder(passwordEncoder());
     return authenticationProvider;
   }
