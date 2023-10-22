@@ -22,8 +22,8 @@ jobs:
         run: |
           git remote add ncp https://devtools.ncloud.com/3051952/NewMVCShop.git
           git config credential.helper store
-          echo "https://devtools.ncloud.com/3051952/NewMVCShop.git" > ncp.url
-          echo "username=token" > ncp.url
+          git config --global user.email ""  # 사용자 이메일 제거
+          git config --global user.name ""    # 사용자 이름 제거
 
           # 코드를 NCP Git 저장소로 push합니다.
           git push ncp main:main
