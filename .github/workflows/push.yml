@@ -23,8 +23,8 @@ jobs:
           # NCP Git 저장소의 SSH URL을 사용하여 remote를 추가합니다.
           git remote add ncp ssh://devtools.ncloud.com/3051952/NewMVCShop.git
           
-          # GitHub Actions Secret에 저장한 호스트 키를 설정합니다.
-          echo "$NCP_SSH_HOST_KEY" > known_hosts
+          # GitHub Actions Secret에 저장한 SSH 공개 키를 설정합니다.
+          echo "$NCP_SSH_HOST_KEY" > ncp_ssh_key
           
           # 코드를 NCP Git 저장소로 push합니다.
-          GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=known_hosts" git push ncp main:main
+          GIT_SSH_COMMAND="ssh -i ncp_ssh_key" git push ncp main:main
