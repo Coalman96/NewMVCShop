@@ -86,7 +86,7 @@ public class SecurityConfig {
 //  @Bean
 //  protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
-    /*태현쿤 코드 해설
+    /*태현쿤 시큐리티 코드 해설
      // HTTP 요청에 대한 권한 설정
     http
         .authorizeHttpRequests(authorize -> authorize
