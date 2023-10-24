@@ -22,11 +22,11 @@ jobs:
         run: npm install -g yarn
 
       - name: Install Dependencies
-        run: npm install
+        run: yarn install
         working-directory: src/main/reactfront
 
       - name: Build React App
-        run: npm run build
+        run: yarn build
         working-directory: src/main/reactfront
 
       - name: Set up JDK 17
