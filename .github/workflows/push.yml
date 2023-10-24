@@ -18,11 +18,6 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install Java
-        uses: actions/setup-java@v2
-        with:
-          java-version: 17
-
       - name: Install Dependencies
         run: npm install
         working-directory: src/main/reactfront
