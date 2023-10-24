@@ -43,11 +43,6 @@ jobs:
       - name: Set up Docker
         uses: docker/setup-buildx-action@v2
 
-      - name: Setup Java
-        uses: actions/setup-java@v2
-        with:
-          java-version: '17'  # 필요한 Java 버전으로 변경하세요
-
       - name: Build WAR
         run: |
           ./gradlew clean build  # Gradle 빌드 명령을 사용하여 WAR 파일을 생성합니다
