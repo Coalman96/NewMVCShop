@@ -9,7 +9,6 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
 
-<<<<<<< HEAD
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
@@ -43,17 +42,16 @@ jobs:
 
       - name: Set up Docker
         uses: docker/setup-buildx-action@v2
-=======
+
       - name: Setup Java
         uses: actions/setup-java@v2
         with:
-          java-version: '11'  # 필요한 Java 버전으로 변경하세요
+          java-version: '17'  # 필요한 Java 버전으로 변경하세요
 
       - name: Build WAR
         run: |
           ./gradlew clean build  # Gradle 빌드 명령을 사용하여 WAR 파일을 생성합니다
         #working-directory: ./path/to/your/project  # 프로젝트 디렉토리 경로로 수정하세요
->>>>>>> parent of 892d8f6 (test)
 
       - name: Login to NCP Container Registry
         uses: docker/login-action@v2
