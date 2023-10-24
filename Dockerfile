@@ -7,7 +7,7 @@ RUN yum -y install wget && \
     rm -f apache-tomcat-9.0.82.tar.gz
 
 # Tomcat 환경 설정
-ENV CATALINA_HOME /opt/apache-tomcat-9.0.60
+ENV CATALINA_HOME /opt/apache-tomcat-9.0.82
 ENV PATH $CATALINA_HOME/bin:$PATH
 
 # Spring Boot 애플리케이션 WAR 파일을 복사
