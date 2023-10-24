@@ -4,9 +4,9 @@ FROM centos:7.8.2003
 # Tomcat 9 다운로드 및 설치
 RUN yum -y install java-1.8.0-openjdk && \
     yum -y install wget && \
-    wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.60/bin/apache-tomcat-9.0.60.tar.gz && \
-    tar -xvf apache-tomcat-9.0.60.tar.gz -C /opt && \
-    rm -f apache-tomcat-9.0.60.tar.gz
+    wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.82/bin/apache-tomcat-9.0.82.tar.gz && \
+    tar -xvf apache-tomcat-9.0.82.tar.gz -C /opt && \
+    rm -f apache-tomcat-9.0.82.tar.gz
 
 # Tomcat 환경 설정
 ENV CATALINA_HOME /opt/apache-tomcat-9.0.60
