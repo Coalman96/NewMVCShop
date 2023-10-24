@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: 20
 
+      - name: Install Yarn
+        run: npm install -g yarn
+
       - name: Install Dependencies
         run: npm install
         working-directory: src/main/reactfront
