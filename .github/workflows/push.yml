@@ -27,7 +27,9 @@ jobs:
         working-directory: src/main/reactfront
 
       - name: Build Spring Boot Application
-        run: ./gradlew build
+        run: |
+          chmod +x ./gradlew
+          ./gradlew clean build
 
       - name: Archive Build Artifacts
         uses: actions/upload-artifact@v2
