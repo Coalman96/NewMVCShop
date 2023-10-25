@@ -5,6 +5,12 @@ ENV PATH $CATALINA_HOME/bin:$PATH
 RUN mkdir -p "$CATALINA_HOME"
 WORKDIR $CATALINA_HOME
 
+# Install gnupg
+RUN set -eux; \
+    apt-get update; \
+    apt-get install -y gnupg; \
+    apt-get install -y gnupg2;
+
 # let "Tomcat Native" live somewhere isolated
 ENV TOMCAT_NATIVE_LIBDIR $CATALINA_HOME/native-jni-lib
 ENV LD_LIBRARY_PATH ${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}$TOMCAT_NATIVE_LIBDIR
@@ -20,7 +26,6 @@ ENV TOMCAT_SHA512 2b13f11f4e0d0b9aee667c256c6ea5d2853b067e8b7e8293f117da050d3833
 COPY --from=tomcat:9.0.82-jdk17-temurin-jammy $CATALINA_HOME $CATALINA_HOME
 RUN set -eux; \
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C; \
-	apt-get update; \
 	xargs -rt apt-get install -y --no-install-recommends < "$TOMCAT_NATIVE_LIBDIR/.dependencies.txt"; \
 	rm -rf /var/lib/apt/lists/
 
