@@ -9,7 +9,10 @@ WORKDIR $CATALINA_HOME
 RUN set -eux; \
     apt-get update; \
     apt-get install -y gnupg gnupg2; \
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C;
+    mkdir -p /etc/apt/trusted.gpg.d; \
+    gpg --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C; \
+    gpg --export --armor 871920D1991BC93C > /etc/apt/trusted.gpg.d/my-ubuntu-key.gpg;
+
 
 # let "Tomcat Native" live somewhere isolated
 #ENV TOMCAT_NATIVE_LIBDIR $CATALINA_HOME/native-jni-lib
