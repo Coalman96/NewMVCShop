@@ -9,7 +9,7 @@ WORKDIR $CATALINA_HOME
 RUN set -eux; \
     apt-get update; \
     apt-get install -y gnupg gnupg2; \
-    #apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C;
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C;
 
 # let "Tomcat Native" live somewhere isolated
 #ENV TOMCAT_NATIVE_LIBDIR $CATALINA_HOME/native-jni-lib
@@ -17,7 +17,7 @@ RUN set -eux; \
 
 # see https://www.apache.org/dist/tomcat/tomcat-9/KEYS
 # see also "versions.sh" (https://github.com/docker-library/tomcat/blob/master/versions.sh)
-ENV GPG_KEYS="48F8E69F6390C9F25CFEDCD268248959359E722B A9C5DF4D22E99998D9875A5110C01C5A2F6059E7 DCFD35E0BF8CA7344752DE8B6FB21E8933C60243"
+#ENV GPG_KEYS="48F8E69F6390C9F25CFEDCD268248959359E722B A9C5DF4D22E99998D9875A5110C01C5A2F6059E7 DCFD35E0BF8CA7344752DE8B6FB21E8933C60243"
 
 ENV TOMCAT_MAJOR 9
 ENV TOMCAT_VERSION 9.0.82
