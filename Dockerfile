@@ -19,9 +19,9 @@ ENV TOMCAT_SHA512 2b13f11f4e0d0b9aee667c256c6ea5d2853b067e8b7e8293f117da050d3833
 
 COPY --from=tomcat:9.0.82-jdk17-temurin-jammy $CATALINA_HOME $CATALINA_HOME
 RUN set -eux; \
-	yum -y update; \
-	xargs -rt yum -y install --no-install-recommends < "$TOMCAT_NATIVE_LIBDIR/.dependencies.txt"; \
-	rm -rf /var/cache/yum/*
+	sudo apt-get update; \
+	xargs -rt apt-get install -y --no-install-recommends < "$TOMCAT_NATIVE_LIBDIR/.dependencies.txt"; \
+	rm -rf /var/lib/apt/lists/
 
 # verify Tomcat Native is working properly
 RUN set -eux; \
