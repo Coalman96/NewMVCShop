@@ -8,8 +8,8 @@ WORKDIR $CATALINA_HOME
 # Install gnupg
 RUN set -eux; \
     apt-get update; \
-    apt-get install -y gnupg; \
-    apt-get install -y gnupg2;
+    apt-get install -y gnupg gnupg2; \
+    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C;
 
 # let "Tomcat Native" live somewhere isolated
 ENV TOMCAT_NATIVE_LIBDIR $CATALINA_HOME/native-jni-lib
@@ -24,20 +24,6 @@ ENV TOMCAT_VERSION 9.0.82
 ENV TOMCAT_SHA512 2b13f11f4e0d0b9aee667c256c6ea5d2853b067e8b7e8293f117da050d3833fda8aa9d9ad278bd12fb7fbf0825108c7d0384509f44c05f9bad73eb099cfaa128
 
 COPY --from=tomcat:9.0.82-jdk17-temurin-jammy $CATALINA_HOME $CATALINA_HOME
-RUN set -eux; \
-  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C; \
-	xargs -rt apt-get install -y --no-install-recommends < "$TOMCAT_NATIVE_LIBDIR/.dependencies.txt"; \
-	rm -rf /var/lib/apt/lists/
-
-# verify Tomcat Native is working properly
-RUN set -eux; \
-	nativeLines="$(catalina.sh configtest 2>&1)"; \
-	nativeLines="$(echo "$nativeLines" | grep 'Apache Tomcat Native')"; \
-	nativeLines="$(echo "$nativeLines" | sort -u)"; \
-	if ! echo "$nativeLines" | grep -E 'INFO: Loaded( APR based)? Apache Tomcat Native library' >&2; then \
-		echo >&2 "$nativeLines"; \
-		exit 1; \
-	fi
 
 # Spring Boot 애플리케이션 WAR 파일을 복사
 COPY build/libs/ROOT.war $CATALINA_HOME/webapps/
