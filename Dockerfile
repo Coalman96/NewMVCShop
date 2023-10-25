@@ -12,8 +12,8 @@ RUN set -eux; \
     #apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C;
 
 # let "Tomcat Native" live somewhere isolated
-ENV TOMCAT_NATIVE_LIBDIR $CATALINA_HOME/native-jni-lib
-ENV LD_LIBRARY_PATH ${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}$TOMCAT_NATIVE_LIBDIR
+#ENV TOMCAT_NATIVE_LIBDIR $CATALINA_HOME/native-jni-lib
+#ENV LD_LIBRARY_PATH ${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}$TOMCAT_NATIVE_LIBDIR
 
 # see https://www.apache.org/dist/tomcat/tomcat-9/KEYS
 # see also "versions.sh" (https://github.com/docker-library/tomcat/blob/master/versions.sh)
