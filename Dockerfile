@@ -1,10 +1,15 @@
 # OpenJDK 17 이미지를 베이스로 사용
-FROM eclipse-temurin:17-jre
+FROM ubuntu:latest
 
-RUN whereis java
+RUN apt-get -y update && apt-get -y upgrade
+RUN apt-get -y install openjdk-17-jdk wget
+RUN mkdir /usr/local/tomcat
+RUN https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.82/bin/apache-tomcat-9.0.82.tar.gz -O /tmp/tomcat.tar.gz
+RUN cd /tmp && tar xvfz tomcat.tar.gz
+RUN cp -Rv /tmp/apache-tomcat-9.0.82/* /usr/local/tomcat/
+RUN rm -rf /tmp/* && rm -rf /usr/local/tomcat/webapps/*
 
-ENV JAVA_HOME=/opt/java/openjdk
-ENV PATH=$JAVA_HOME/bin:$PATH
+
 
 COPY gradlew .
 COPY gradle gradle
