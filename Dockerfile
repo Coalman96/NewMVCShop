@@ -9,7 +9,7 @@ COPY src src
 RUN chmod +x ./gradlew	# gradlew 실행 권한 부여
 
 # Node.js 및 npm 설치
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+RUN curl -fsSL https://deb.nodesource.com/setup_21.x | bash -
 RUN apt-get update && apt-get install -y nodejs
 
 # Yarn 설치
@@ -20,7 +20,7 @@ RUN yarn install
 RUN yarn build
 
 # Gradle을 사용하여 프로젝트 빌드
-WORKDIR /
+WORKDIR /usr/local/tomcat
 RUN ./gradlew build
 
 # Spring Boot 애플리케이션 WAR 파일을 복사
