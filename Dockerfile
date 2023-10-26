@@ -1,7 +1,7 @@
 # OpenJDK 17 이미지를 베이스로 사용
 FROM eclipse-temurin:17-jdk-jammy
 
-ENV JAVA_HOME /opt/java/openjdk
+ENV JAVA_HOME=/opt/java/openjdk PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 COPY gradlew .
 COPY gradle gradle
