@@ -6,9 +6,13 @@ COPY gradle gradle
 COPY build.gradle .
 COPY settings.gradle .
 COPY src src
-RUN chmod +x ./gradlew	#gradlew 실행 권한 부여
+RUN chmod +x ./gradlew	# gradlew 실행 권한 부여
 
-RUN apt-get update && apt-get install -y nodejs npm
+# Node.js 및 npm 설치
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+RUN apt-get update && apt-get install -y nodejs
+
+# Yarn 설치
 RUN npm install -g yarn
 
 WORKDIR src/main/reactfront
@@ -20,4 +24,3 @@ RUN ./gradlew build
 
 # Spring Boot 애플리케이션 WAR 파일을 복사
 COPY build/libs/ROOT.war $CATALINA_HOME/webapps/
-
