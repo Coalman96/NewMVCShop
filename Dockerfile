@@ -1,7 +1,9 @@
 # OpenJDK 17 이미지를 베이스로 사용
 FROM eclipse-temurin:17-jdk-jammy
 
-ARG JAVA_HOME
+RUN whereis java
+RUN find /usr/lib/jvm/java*
+
 
 ENV JAVA_HOME=/opt/java/openjdk/bin PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
