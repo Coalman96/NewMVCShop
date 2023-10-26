@@ -13,7 +13,8 @@ RUN set -eux; \
     gpg --keyserver keyserver.ubuntu.com --recv-keys 871920D1991BC93C; \
     gpg --export --armor 871920D1991BC93C > /etc/apt/trusted.gpg.d/my-ubuntu-key.gpg;
 
-
+# Gradle을 사용하여 프로젝트 빌드
+RUN ./gradlew build
 # let "Tomcat Native" live somewhere isolated
 #ENV TOMCAT_NATIVE_LIBDIR $CATALINA_HOME/native-jni-lib
 #ENV LD_LIBRARY_PATH ${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}$TOMCAT_NATIVE_LIBDIR
