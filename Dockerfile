@@ -6,6 +6,7 @@ COPY gradlew .
 COPY gradle gradle
 COPY build.gradle .
 COPY settings.gradle .
+COPY src src
 RUN chmod +x ./gradlew	#gradlew 실행 권한 부여
 
 # Gradle을 사용하여 프로젝트 빌드
