@@ -4,7 +4,7 @@ FROM eclipse-temurin:17-jdk-jammy
 WORKDIR /app
 
 # Gradle Wrapper 스크립트를 복사
-COPY test3/gradle/* /app
+COPY test3/gradle/ /app/
 
 # Gradle Wrapper 스크립트에 실행 권한 부여
 RUN chmod +x /app/gradlew
