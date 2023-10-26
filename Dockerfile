@@ -1,5 +1,6 @@
 FROM eclipse-temurin:17-jdk-jammy
 
+RUN chmod +x gradlew
 # Gradle을 사용하여 프로젝트 빌드
 RUN ./gradlew build
 
