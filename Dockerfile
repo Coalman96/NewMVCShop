@@ -1,7 +1,7 @@
 # OpenJDK 17 이미지를 베이스로 사용
 FROM eclipse-temurin:17-jre
 
-RUN which java
+RUN whereis java
 
 ENV JAVA_HOME=/opt/java/openjdk
 ENV PATH=$JAVA_HOME/bin:$PATH
