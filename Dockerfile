@@ -1,13 +1,14 @@
 # OpenJDK 17 이미지를 베이스로 사용
 FROM eclipse-temurin:17-jdk-jammy
 
+ARG JAVA_HOME
+
 ENV JAVA_HOME=/opt/java/openjdk PATH=/opt/java/openjdk/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 COPY gradlew .
 COPY gradle gradle
 COPY build.gradle .
 COPY settings.gradle .
-COPY src src
 RUN chmod +x ./gradlew	#gradlew 실행 권한 부여
 
 # Gradle을 사용하여 프로젝트 빌드
