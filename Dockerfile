@@ -9,12 +9,8 @@ COPY src src
 RUN chmod +x ./gradlew	# gradlew 실행 권한 부여
 
 # Node.js 및 npm 설치
-RUN apt-get update && apt-get install -y curl
-RUN curl -fsSL https://deb.nodesource.com/gpgkey/nodesource.gpg.key | apt-key add -
-RUN sh -c "echo deb https://deb.nodesource.com/setup_21.x $(lsb_release -cs) main > /etc/apt/sources.list.d/nodesource.list"
-RUN sh -c "echo deb-src https://deb.nodesource.com/setup_21.x $(lsb_release -cs) main >> /etc/apt/sources.list.d/nodesource.list"
-RUN apt-get update
-RUN apt-get install -y nodejs
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
+RUN apt-get update && apt-get install -y nodejs
 
 # Yarn 설치
 RUN npm install -g yarn
