@@ -23,6 +23,7 @@ RUN yarn build
 WORKDIR /usr/local/tomcat
 RUN ./gradlew build
 
+# WAR 파일을 복사하여 Tomcat 웹 애플리케이션 폴더로 이동
+COPY build/libs/*.war webapps/
+
 ENTRYPOINT ["./bin/catalina.sh", "run"]
-# Spring Boot 애플리케이션 WAR 파일을 복사
-#COPY build/libs/ROOT.war $CATALINA_HOME/webapps/
