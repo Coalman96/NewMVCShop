@@ -6,6 +6,7 @@ FROM tomcat:9.0.82-jdk17-temurin-focal
 #COPY build.gradle .
 #COPY settings.gradle .
 #COPY src src
+RUN pwd
 RUN chmod +x ./gradlew	# gradlew 실행 권한 부여
 
 # Node.js 및 npm 설치
