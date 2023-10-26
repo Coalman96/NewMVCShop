@@ -20,6 +20,7 @@ RUN yarn install
 RUN yarn build
 
 # Gradle을 사용하여 프로젝트 빌드
+WORKDIR /
 RUN ./gradlew build
 
 # Spring Boot 애플리케이션 WAR 파일을 복사
