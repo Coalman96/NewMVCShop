@@ -7,7 +7,7 @@ WORKDIR /app
 COPY gradle/wrapper/ /app/
 
 # Gradle Wrapper 스크립트에 실행 권한 부여
-RUN chmod +x /app/gradlew
+RUN chmod +x /app/
 
 # Gradle을 사용하여 프로젝트 빌드
 RUN /app/gradlew build
