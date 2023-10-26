@@ -1,4 +1,4 @@
-FROM adoptopenjdk:17-jre
+FROM openjdk:17-jre
 
 # Tomcat 다운로드 및 설치
 RUN mkdir usr/local/tomcat
