@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/user/*")
+@RequestMapping({"/user/*","/api/v1/auth","/api/v1/admin"})
 @ToString
 @RequiredArgsConstructor
 @Slf4j

@@ -79,7 +79,7 @@ function AddUserView() {
       return;
     }
     axios
-      .post("/user/json/addUser", userData)
+      .post("/api/v1/json/signup", userData)
       .then((response) => {
         console.log("사용자 추가 성공", response);
         window.location = "/";

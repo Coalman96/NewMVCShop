@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import mvc.service.entity.Role;
 
 @Setter
 @Getter
@@ -18,7 +19,7 @@ public class UserDTO extends BaseDTO{
 	private String userId;
 	private String userName;
 	private String password;
-	private String role;
+	private Role role;
 	private String ssn;
 	private String phone;
 	private String addr;

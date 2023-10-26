@@ -2,6 +2,8 @@ package mvc.service.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
@@ -28,7 +30,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @AllArgsConstructor
 @DynamicUpdate
 public class UserEntity extends BaseEntity implements UserDetails {
-	
+
 	///Field
 	@Id
 	@Column(length = 20)
@@ -37,12 +39,12 @@ public class UserEntity extends BaseEntity implements UserDetails {
 	@Column(length = 50)
 	private String userName;
 
-	@Column(length = 10, updatable = false)
+//	@Column(length = 10, updatable = false)
 	private String password;
 
-	@Builder.Default
-	@Column(length = 5, updatable = false)
-	private String role = "user";
+	@Enumerated(EnumType.STRING)
+//	@Column(updatable = false)
+	private Role role;
 
 	@Column(length = 13, updatable = false)
 	private String ssn;
@@ -83,7 +85,7 @@ public class UserEntity extends BaseEntity implements UserDetails {
 	//권한을 가져올 메소드
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return List.of(new SimpleGrantedAuthority(role)); //단순권한부여를 리스트로 반환
+		return List.of(new SimpleGrantedAuthority(role.name())); //단순권한부여를 리스트로 반환
 	}
 
 	//이메일을 가져올 메소드(유저네임이지만 이메일만 가져올수있다.)

@@ -45,7 +45,7 @@ public class QUserEntity extends EntityPathBase<UserEntity> {
     //inherited
     public final DatePath<java.time.LocalDate> regDate = _super.regDate;
 
-    public final StringPath role = createString("role");
+    public final EnumPath<Role> role = createEnum("role", Role.class);
 
     public final StringPath ssn = createString("ssn");
 

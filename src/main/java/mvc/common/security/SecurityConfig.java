@@ -18,6 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @RequiredArgsConstructor
@@ -38,9 +39,10 @@ public class SecurityConfig {
         //CSRF(Cross-Site Request Forgery) 공격을 비활성화하여 보안문제를 방지하고 웹 애플리케이션의 안전성을 강화
         .csrf(AbstractHttpConfigurer::disable) // csrf를 비활성화하기위해 AbstractHttpConfigurer를 disable
         // HTTP 요청에 대한 접근 권한을 설정
-        .authorizeHttpRequests(request -> request.requestMatchers("/api/v1/auth/**").permitAll()
-            .requestMatchers("api/vi/admin").hasAnyAuthority(Role.ADMIN.name())
-            .requestMatchers("api/vi/user").hasAnyAuthority(Role.USER.name())
+        .authorizeHttpRequests(request -> request
+            .requestMatchers(new AntPathRequestMatcher("/**")).permitAll()
+            .requestMatchers(new AntPathRequestMatcher("/api/v1/admin/**")).hasAnyAuthority(Role.ADMIN.name())
+            .requestMatchers(new AntPathRequestMatcher("/api/v1/user/**")).hasAnyAuthority(Role.USER.name())
             .anyRequest().authenticated())
         //세션관리 비활성화,상태를 저장하지 않는 세션을 사용하며
         //모든 요청은 세션에 의존하지 않는다. 이는 주로 토큰 기반의 인증을 사용할 때 사용
