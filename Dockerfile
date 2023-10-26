@@ -11,7 +11,7 @@ RUN chmod +x ./gradlew	#gradlew 실행 권한 부여
 RUN apt-get update && apt-get install -y nodejs npm
 RUN npm install -g yarn
 
-WORKDIR /src/main/reactfront
+WORKDIR src/main/reactfront
 RUN yarn install
 RUN yarn build
 
