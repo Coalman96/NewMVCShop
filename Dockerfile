@@ -1,6 +1,13 @@
 FROM eclipse-temurin:17-jdk-jammy
 
-RUN chmod +x gradlew
+# 작업 디렉토리 설정
+WORKDIR /app
+
+# Gradle Wrapper 스크립트를 복사
+COPY test3/gradle/wrapper /app/gradle/wrapper
+
+RUN chmod +x /app/gradlew
+
 # Gradle을 사용하여 프로젝트 빌드
 RUN ./gradlew build
 
