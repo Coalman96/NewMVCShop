@@ -27,6 +27,6 @@ WORKDIR /usr/local/tomcat
 RUN ./gradlew build
 RUN find / -type f -name "*.war" -exec ls -l {} \;
 # WAR 파일을 복사하여 Tomcat 웹 애플리케이션 폴더로 이동
-COPY /build/libs/ROOT.war usr/local/tomcat/webapps/
+COPY /usr/local/tomcat/build/libs/ROOT.war usr/local/tomcat/webapps/
 
 CMD ["./bin/catalina.sh", "run"]
