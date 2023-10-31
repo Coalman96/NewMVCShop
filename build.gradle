@@ -129,7 +129,9 @@ sourceSets {
 compileJava {
     options.compilerArgs << '-Aquerydsl.generatedAnnotationClass=javax.annotation.Generated'
 }
-
+tasks.register('installNodeAndYarn', Exec) {
+    commandLine 'npm', 'install', '-g', 'yarn'
+}
 tasks.withType(JavaCompile).configureEach {
     options.getGeneratedSourceOutputDirectory().set(file(querydslSrcDir))
     options.compilerArgs << "-parameters"
