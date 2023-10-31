@@ -141,17 +141,15 @@ clean {
 
 processResources { dependsOn "copyReactBuildFiles" }
 
-tasks.register('npm', Exec) {
-    commandLine 'npm', 'install'
-
-}
 tasks.register('installReact', Exec) {
     workingDir "$frontendDir"
     inputs.dir "$frontendDir"
     group = BasePlugin.BUILD_GROUP
     if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
+        commandLine 'npm.cmd', 'install'
         commandLine "yarn.cmd", "install"
     } else {
+        commandLine 'npm', 'install'
         commandLine "yarn", "install"
     }
 }
