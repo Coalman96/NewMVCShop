@@ -146,10 +146,10 @@ tasks.register('installReact', Exec) {
     inputs.dir "$frontendDir"
     group = BasePlugin.BUILD_GROUP
     if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) {
-        commandLine 'npm.cmd', 'install'
+        //commandLine 'npm.cmd', 'install'
         commandLine "yarn.cmd", "install"
     } else {
-        commandLine 'npm', 'install'
+        //commandLine 'npm', 'install'
         commandLine "yarn", "install"
     }
 }
