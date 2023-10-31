@@ -11,7 +11,7 @@ COPY src src
 
 RUN chmod +x ./gradlew	# gradlew 실행 권한 부여
 
-# Node.js 및 npm 설치
+# Node.js 및 npm  설치
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -
 RUN apt-get update && apt-get install -y nodejs
 
