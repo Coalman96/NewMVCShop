@@ -141,6 +141,10 @@ clean {
 
 processResources { dependsOn "copyReactBuildFiles" }
 
+tasks.register('npm', Exec) {
+    commandLine 'npm', 'install'
+
+}
 tasks.register('installReact', Exec) {
     workingDir "$frontendDir"
     inputs.dir "$frontendDir"
