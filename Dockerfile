@@ -6,4 +6,7 @@ RUN pwd
 # WAR 파일을 복사하여 Tomcat 웹 애플리케이션 폴더로 이동
 COPY build/libs/ROOT.war /usr/local/tomcat/webapps/
 
-EXPOSE 8001
+EXPOSE 8000
+
+# Tomcat를 실행
+CMD ["catalina.sh", "run"]
