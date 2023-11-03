@@ -6,9 +6,9 @@ plugins {
 }
 
 apply plugin: 'war'
-bootWar{
-    archiveFileName = "ROOT.war"
-}
+//bootWar{
+//    archiveFileName = "ROOT.war"
+//}
 group = 'com.spring.MVC'
 version = '0.0.1-SNAPSHOT'
 
@@ -50,7 +50,8 @@ dependencies {
 
     //servlet & tomcat
     implementation 'javax.servlet:javax.servlet-api:4.0.1'
-    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+    //implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
+    providedCompile 'org.apache.tomcat.embed:tomcat-embed-jasper'
     implementation 'jakarta.servlet:jakarta.servlet-api'
 
     //jsp
