@@ -1,0 +1,10 @@
+2023-11-06 00:16:37 200 GET / HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 - 127.0.0.1 1392 135899
+2023-11-06 00:16:37 200 GET /static/css/main.699cb5ff.css HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 http://127.0.0.1:8001/ 127.0.0.1 22869 16180
+2023-11-06 00:16:37 200 GET /static/js/main.8d532b91.js HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 http://127.0.0.1:8001/ 127.0.0.1 449768 170754
+2023-11-06 00:16:37 200 GET /static/media/banner-0.9c9f2782f4dd5345c2b9.jpg HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 http://127.0.0.1:8001/ 127.0.0.1 28664 5549
+2023-11-06 00:16:37 200 GET /static/media/banner-1.b5124fbc75ea70c556f0.jpg HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 http://127.0.0.1:8001/ 127.0.0.1 13487 5354
+2023-11-06 00:16:37 200 GET /static/media/banner-2.ebc92ccd692d6ea56134.jpg HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 http://127.0.0.1:8001/ 127.0.0.1 85546 8380
+2023-11-06 00:16:37 200 GET /favicon.ico HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 http://127.0.0.1:8001/ 127.0.0.1 3870 21207
+2023-11-06 00:16:38 200 GET /favicon.ico HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 http://127.0.0.1:8001/ 127.0.0.1 3870 4179
+2023-11-06 00:16:38 200 GET /manifest.json HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 http://127.0.0.1:8001/ 127.0.0.1 492 14489
+2023-11-06 00:16:38 200 GET /logo192.png HTTP/1.1 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36 http://127.0.0.1:8001/ 127.0.0.1 5347 7434
