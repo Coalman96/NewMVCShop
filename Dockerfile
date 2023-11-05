@@ -8,5 +8,4 @@ COPY build/libs/ROOT.war /usr/local/tomcat/webapps/
 
 EXPOSE 8080
 
-# Tomcat를 실행
-CMD ["catalina.sh", "run"]
+CMD ["java", "-jar", "ROOT.war"]
