@@ -8,4 +8,4 @@ COPY build/libs/ROOT.war /usr/local/tomcat/webapps/
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "ROOT.war"]
+CMD ["catalina.sh run"]
