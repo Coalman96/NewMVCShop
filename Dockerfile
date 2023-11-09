@@ -8,4 +8,4 @@ RUN pwd
 COPY build/libs/MVCshop.jar /usr/local/tomcat/
 EXPOSE 8001
 
-CMD ["java", "-jar", "MVCshop.jar"]
+#CMD ["java", "-jar", "MVCshop.jar"]
